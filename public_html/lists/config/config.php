@@ -3,29 +3,62 @@
 /*
 
 * ==============================================================================================================
-*
-*
-* The minimum requirements to get phpList working are in this file.
+* 
+* 
+* The minimum requirements to get phpList working are in this file. 
 * If you are interested in tweaking more options, check out the config_extended.php file
 * or visit http://resources.phplist.com/system/config
-*
+* 
 * ** NOTE: To use options from config_extended.php, you need to copy them to this file **
-*
+* 
 ==============================================================================================================
 
 */
 
-# what is your Mysql database server hostname
+# select the language module to use
+# Look for <country>.inc files in the texts directory
+# to find your language
+# this is the language for the frontend pages. In the admin pages you can
+# choose your language by using the dropdown in the pages.
+$language_module = 'french.inc';
+
+## default system language
+# set the default system language. If the language cannot be detected, it will fall back to
+# this one. It has to be the "ISO code" of the language.
+# to find what languages are available here, check out http://translate.phplist.com/
+$default_system_language = 'fr';
+
+# what is your Mysql database server
 $database_host = 'localhost';
 
 # what is the name of the database we are using
-$database_name = 'phplistdb';
+$database_name = 'bdd_mailing';
 
-# what user has access to this database
-$database_user = 'phplist';
+# who do we log in as?
+$database_user = 'root_mailing';
 
-# and what is the password to login to control the database
-$database_password = 'phplist';
+# and what password do we use
+$database_password = '76hPmZ48kUKr3HBvDonL';
+
+# enable database connection compression
+$database_connection_compression = false;
+
+# force database connection to use SSL
+$database_connection_ssl = false;
+
+# if you use multiple installations of phpList you can set this to
+# something to identify this one. it will be prepended to email report
+# subjects
+$installation_name = 'TLMC';
+
+# if you want a prefix to all your tables, specify it here,
+$table_prefix = 'phplist_';
+
+# if you want to use a different prefix to user tables, specify it here.
+# read README.usertables for more information
+$usertable_prefix = 'phplist_user_';
+
+
 
 # if you have an SMTP server, set it here. Otherwise it will use the normal php mail() function
 ## if your SMTP server is called "smtp.mydomain.com" you enter this below like this:
@@ -34,22 +67,22 @@ $database_password = 'phplist';
 
 define('PHPMAILERHOST', '');
 
-# if TEST is set to 1 (not 0) it will not actually send ANY messages, but display what it would have sent
+# if test is true (not 0) it will not actually send ANY messages, but display what it would have sent
 # this is here, to make sure you edited the config file and mails are not sent "accidentally"
 # on unmanaged systems
 
-define('TEST', 1);
+define('TEST', 0);
 
 /*
 
 ==============================================================================================================
-*
+* 
 * Settings for handling bounces
-*
-* This section is OPTIONAL, and not necessary to send out mailings, but it is highly recommended to correctly
+* 
+* This section is OPTIONAL, and not necessary to send out mailings, but it is highly recommended to correctly 
 * set up bounce processing. Without processing of bounces your system will end up sending large amounts of
 * unnecessary messages, which overloads your own server, the receiving servers and internet traffic as a whole
-*
+* 
 ==============================================================================================================
 
 */

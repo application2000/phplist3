@@ -2,12 +2,10 @@
 DirectoryIndex index.php
 
 <FilesMatch "\.(php|inc)$">
-Order allow,deny
-deny from all
+Require all granted
 </FilesMatch>
 <FilesMatch "(index.php|dl.php|ut.php|lt.php|download.php|connector.php)$">
-Order allow,deny
-allow from all
+Require all granted
 </FilesMatch>
 
 # if you want more than this for attachments, you can increase these values
